@@ -68,6 +68,8 @@ file.exists("students.csv")
 print("CSV file created successfully!")
 ```
 
+*Try the code in your R environment and observe the output*
+
 ::right::
 
 **Sample Output: students.csv**
@@ -89,122 +91,6 @@ David,25,90,CS
 # Live Demo: CSV Writing
 
 <iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Try the code in your R environment and observe the output*
-
----
-layout: two-cols
----
-
-# Writing Text Files
-
-For unstructured data and custom formats
-
-```r {1-6|7-9|10-14}
-# Create summary text
-summary_text <- c(
-  "Student Performance Report",
-  "==========================",
-  paste("Total students:", nrow(students)),
-  paste("Average grade:", mean(students$Grade))
-)
-
-# Write to text file
-writeLines(summary_text, "report.txt")
-
-# Alternative: using cat() for more control
-cat("Detailed Report\n", 
-    "Generated on:", Sys.Date(), "\n",
-    file = "detailed_report.txt")
-```
-
-::right::
-
-**Sample Output: report.txt**
-```text
-Student Performance Report
-==========================
-Total students: 4
-Average grade: 88.75
-```
-
-💡 **Key Points:**
-- `writeLines()` for line-by-line output
-- `cat()` offers more formatting control
-- Include metadata like generation dates
-- Use meaningful file names
-
----
-
-# Live Demo: Text File Writing
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Experiment with different text formatting options*
-
----
-layout: two-cols
----
-
-# Advanced Writing: Multiple Formats
-
-Saving data in various formats for different use cases
-
-```r {1-8|9-12|13-16|17-20}
-# Create more complex dataset
-sales_data <- data.frame(
-  Date = seq(as.Date("2024-01-01"), 
-             as.Date("2024-01-31"), by = "day"),
-  Sales = round(runif(31, 1000, 5000), 2),
-  Region = sample(c("North", "South", "East", "West"), 
-                  31, replace = TRUE)
-)
-
-# Save as CSV with custom separator
-write.table(sales_data, "sales_semicolon.csv", 
-            sep = ";", row.names = FALSE)
-
-# Save summary statistics
-summary_stats <- summary(sales_data$Sales)
-write.csv(summary_stats, "sales_summary.csv")
-
-# Export for Excel (CSV format)
-write.csv(sales_data, "sales_for_excel.csv", 
-          row.names = FALSE, na = "")
-```
-
-::right::
-
-**sales_semicolon.csv (sample)**
-```
-Date;Sales;Region
-2024-01-01;2847.32;North
-2024-01-02;4123.45;South
-2024-01-03;1678.90;East
-...
-```
-
-**sales_summary.csv**
-```
-"","x"
-"Min.","1045.23"
-"1st Qu.","2234.56"
-"Median","2987.12"
-...
-```
-
-💡 **Advanced Tips:**
-- Different separators for international compatibility
-- Handle missing values with `na = ""`
-- Create summary files for quick insights
-
----
-
-# Live Demo: Advanced Writing
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Practice with different file formats and options*
 
 ---
 layout: two-cols
@@ -232,6 +118,8 @@ close(con)
 numeric_lines <- grep("[0-9]+", text_content, value = TRUE)
 print(numeric_lines)
 ```
+
+*Try the code in your R environment and observe the output*
 
 ::right::
 
@@ -272,7 +160,7 @@ layout: two-cols
 
 Working with spreadsheet data in CSV
 
-```r {1-7|8-12}
+```r {2|5-13}
 # Read CSV-like data structure
 inventory <- read.csv("inventory.csv")
 head(inventory)
@@ -287,6 +175,8 @@ barplot(inventory$Total, names.arg = inventory$Product,
 pie(inventory$Stock, labels = inventory$Product, 
     main = "Stock Distribution")
 ```
+
+*Try the code in your R environment and observe the output*
 
 ::right::
 
@@ -321,7 +211,7 @@ layout: two-cols
 
 Working with spreadsheet data (TODO: Make excel)
 
-```r {1-4|5-8|9-13|14-18}
+```r {6|9-17}
 # For Excel files, we'll simulate with CSV
 # In practice, use: library(readxl)
 # excel_data <- read_excel("file.xlsx")
@@ -340,6 +230,8 @@ barplot(inventory$Total, names.arg = inventory$Product,
 pie(inventory$Stock, labels = inventory$Product, 
     main = "Stock Distribution")
 ```
+
+*Try the code in your R environment and observe the output*
 
 ::right::
 
@@ -369,7 +261,7 @@ Cable,15.99,200,Accessories
 *Handle spreadsheet-like data structures*
 
 ---
-layout: center
+layout: two-cols
 class: text-center
 ---
 
@@ -382,14 +274,14 @@ class: text-center
 - Handle special characters with encoding
 - Create backup copies of important data
 
+::right::
+
 ## 📖 Reading Guidelines
 - Always validate file existence
 - Check data structure with `str()`
 - Handle missing values appropriately
 - Use consistent column types
 - Implement error handling
-
-💡 **Pro Tip:** Create a standard workflow template for your file operations to ensure consistency across projects
 
 ---
 layout: center
@@ -402,15 +294,11 @@ class: text-center
 
 ### ✅ Writing Skills
 - CSV creation
-- Text file output
-- Multiple formats
-- Data export
 
 ### ✅ Reading Skills  
 - CSV import
 - Text processing
 - Excel handling
-- Data validation
 
 ### ✅ Best Practices
 - Quality checks
