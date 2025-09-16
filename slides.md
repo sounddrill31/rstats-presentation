@@ -1,6 +1,6 @@
 ---
 theme: default
-background: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+background: https://images.pexels.com/photos/186464/pexels-photo-186464.jpeg
 class: text-center
 highlighter: shiki
 lineNumbers: true
@@ -12,46 +12,62 @@ mdc: true
 ---
 
 # R Programming
-## File Operations Mastery
+## File Operations in R Stats
 ### Writing & Reading Data with Confidence
 
-*Master the fundamentals of data I/O in R*
+*Walk through the fundamentals of data I/O in R*
 
 <div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer bg-blue-500 text-white hover:bg-blue-600">
+  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer text-white hover:bg-blue-600">
     Start Learning <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
+<div class="absolute bottom-4 left-4 text-xs opacity-50">
+Photo by Burak The Weekender: 
+https://www.pexels.com/photo/white-android-tablet-turned-on-displaying-a-graph-186464/
+</div>
+
+<div class="abs-br m-6 flex gap-2">
+  <a href="https://github.com/sounddrill31/rstats-presentation" target="_blank" alt="GitHub"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+</div>
+
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
-# 📝 Writing Files
-- Creating CSV files
-- Exporting data frames
-- Text file output
-- Best practices
+# Objectives
+
+In this section, we'll explore essential file handling techniques in data processing workflows.
+- These objectives cover both output and input operations to manage data effectively.
+- Understanding these skills will enhance your ability to work with various file formats seamlessly.
+- These will be demonstrated with real, working examples!
 
 ::right::
+### 📝 Writing Files
+- Creating CSV files
 
-# 📖 Reading Files
+::left::
+
+### 📖 Reading Files
 - CSV data import
 - Text file processing
 - Excel file handling
 - Data validation
 
-*Interactive demos with real code and data examples*
-
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # Creating Your First CSV File
 
 Understanding the basics of structured data output
 
-```r {1-8|9-10|11-13}
+::left::
+```r {1-8|9-10|11-13|*}
 # Create a sample dataset
 students <- data.frame(
   Name = c("Alice", "Bob", "Carol", "David"),
@@ -72,6 +88,11 @@ print("CSV file created successfully!")
 
 ::right::
 
+💡 **Key Points:**
+- Use `row.names = FALSE` to avoid index column
+- Data frame structure translates directly to CSV
+- Always verify file creation with `file.exists()`
+
 **Sample Output: students.csv**
 ```csv
 Name,Age,Grade,Major
@@ -81,26 +102,23 @@ Carol,23,85,Physics
 David,25,90,CS
 ```
 
-💡 **Key Points:**
-- Use `row.names = FALSE` to avoid index column
-- Data frame structure translates directly to CSV
-- Always verify file creation with `file.exists()`
-
 ---
+layout: iframe
 
-# Live Demo: CSV Writing
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
+# the web page source
+url: https://github.com/slidevjs/slidev
 ---
-layout: two-cols
+---
+layout: two-cols-header
 ---
 
 # Reading Text Files
 
 Processing unstructured text data
 
-```r {1-3|4-7|8-12|13-16}
+::left::
+
+```r {2,6|10-11|*}
 # Read entire file as character vector
 text_content <- readLines("report.txt")
 print(text_content)
@@ -122,6 +140,10 @@ print(numeric_lines)
 *Try the code in your R environment and observe the output*
 
 ::right::
+- `readLines()` for line-by-line access
+- Use `grep()` for pattern matching
+- Always close file connections
+- Process incrementally for large files
 
 **Sample Data: report.txt**
 ```text
@@ -137,30 +159,22 @@ Math: 1 student
 Physics: 1 student
 ```
 
-💡 **Text Processing Tips:**
-- `readLines()` for line-by-line access
-- Use `grep()` for pattern matching
-- Always close file connections
-- Process incrementally for large files
-
 ---
+layout: iframe
 
-# Live Demo: Text File Reading
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Work with text files and pattern extraction*
-
-
+# the web page source
+url: https://github.com/slidevjs/slidev
 ---
-layout: two-cols
+---
+layout: two-cols-header
 ---
 
 # CSV File Handling
 
 Working with spreadsheet data in CSV
 
-```r {2|5-13}
+::left::
+```r {2|5-13|*}
 # Read CSV-like data structure
 inventory <- read.csv("inventory.csv")
 head(inventory)
@@ -180,6 +194,10 @@ pie(inventory$Stock, labels = inventory$Product,
 
 ::right::
 
+- Always check data structure with `str()`
+- Validate row/column counts
+- Use `stringsAsFactors = FALSE` for modern R
+
 **Sample Data: inventory.csv**
 ```csv
 Product,Price,Stock,Category
@@ -191,27 +209,22 @@ Headphones,199.99,30,Electronics
 Cable,15.99,200,Accessories
 ```
 
-- Always check data structure with `str()`
-- Validate row/column counts
-- Use `stringsAsFactors = FALSE` for modern R
+---
+layout: iframe
+
+# the web page source
+url: https://github.com/slidevjs/slidev
 
 ---
-
-# Live Demo: CSV-style Data
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Handle spreadsheet-like data structures*
-
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
 # Excel File Handling
 
 Working with spreadsheet data (TODO: Make excel)
-
-```r {6|9-17}
+::left::
+```r {6|9-17|*}
 # For Excel files, we'll simulate with CSV
 # In practice, use: library(readxl)
 # excel_data <- read_excel("file.xlsx")
@@ -234,6 +247,10 @@ pie(inventory$Stock, labels = inventory$Product,
 *Try the code in your R environment and observe the output*
 
 ::right::
+- Use `readxl` package for true Excel files
+- CSV format works for most Excel needs
+- Include `fileEncoding = "UTF-8"` for special characters
+- Visualize inventory data with bar and pie charts
 
 **Sample Data: inventory.xlsx** (csv representation)
 ```csv
@@ -245,63 +262,54 @@ Keyboard,79.99,50,Accessories
 Headphones,199.99,30,Electronics
 Cable,15.99,200,Accessories
 ```
-
-💡 **Excel Integration:**
-- Use `readxl` package for true Excel files
-- CSV format works for most Excel needs
-- Include `fileEncoding = "UTF-8"` for special characters
-- Visualize inventory data with bar and pie charts
-
 ---
+layout: iframe
 
-# Live Demo: Excel-style Data
-
-<iframe src="https://www.google.com" width="100%" height="500" class="border rounded-lg"></iframe>
-
-*Handle spreadsheet-like data structures*
-
+# the web page source
+url: https://github.com/slidevjs/slidev
 ---
-layout: two-cols
+---
+layout: two-cols-header
 class: text-center
 ---
 
 # Best Practices Summary
 
+::left:: 
 ## 📝 Writing Guidelines
-- Use meaningful filenames
-- Include headers in CSV files
-- Set `row.names = FALSE` for clean output
-- Handle special characters with encoding
-- Create backup copies of important data
+Use meaningful filenames  
+Include headers in CSV files  
+Set `row.names = FALSE` for clean output  
+Handle special characters with encoding  
+Create backup copies of important data  
 
 ::right::
 
 ## 📖 Reading Guidelines
-- Always validate file existence
-- Check data structure with `str()`
-- Handle missing values appropriately
-- Use consistent column types
-- Implement error handling
+Always validate file existence  
+Check data structure with `str()`  
+Handle missing values appropriately  
+Use consistent column types  
+Implement error handling  
 
 ---
-layout: center
+layout: two-cols-header
 class: text-center
 ---
 
 # 🎉 Congratulations!
 
+Presentation by Souhrud Reddy
+
 ## You've Mastered R File Operations
 
+::left:: 
 ### ✅ Writing Skills
-- CSV creation
+CSV creation  
 
+
+::right::
 ### ✅ Reading Skills  
-- CSV import
-- Text processing
-- Excel handling
-
-### ✅ Best Practices
-- Quality checks
-- Error handling
-- Consistent workflows
-- Documentation
+CSV handling  
+Text handling  
+Excel handling  
