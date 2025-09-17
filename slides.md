@@ -106,7 +106,7 @@ David,25,90,CS
 layout: iframe
 
 # the web page source
-url: https://examdawn.pages.dev/jupyterlite/dist/repl/index.html?kernel=python&code=%23%20Create%20a%20sample%20dataset%0Astudents%20%3C-%20data.frame(%0A%20%20Name%20%3D%20c(%22Alice%22%2C%20%22Bob%22%2C%20%22Carol%22%2C%20%22David%22)%2C%0A%20%20Age%20%3D%20c(22%2C%2024%2C%2023%2C%2025)%2C%0A%20%20Grade%20%3D%20c(88%2C%2092%2C%2085%2C%2090)%2C%0A%20%20Major%20%3D%20c(%22CS%22%2C%20%22Math%22%2C%20%22Physics%22%2C%20%22CS%22)%0A)%0A%0A%23%20Write%20to%20CSV%20file%0Awrite.csv(students%2C%20%22%2Ftmp%2Fstudents.csv%22%2C%20row.names%20%3D%20FALSE)%0A%0A%23%20Verify%20the%20file%20was%20created%0Afile.exists(%22students.csv%22)%0Aprint(%22CSV%20file%20created%20successfully!%22)&execute=1 
+url: https://examdawn.pages.dev/jupyterlite/dist/repl/index.html?kernel=webR&code=%23%20Create%20a%20sample%20dataset%0Astudents%20%3C-%20data.frame(%0A%20%20Name%20%3D%20c(%22Alice%22%2C%20%22Bob%22%2C%20%22Carol%22%2C%20%22David%22)%2C%0A%20%20Age%20%3D%20c(22%2C%2024%2C%2023%2C%2025)%2C%0A%20%20Grade%20%3D%20c(88%2C%2092%2C%2085%2C%2090)%2C%0A%20%20Major%20%3D%20c(%22CS%22%2C%20%22Math%22%2C%20%22Physics%22%2C%20%22CS%22)%0A)%0A%0A%23%20Write%20to%20CSV%20file%0Awrite.csv(students%2C%20%22%2Ftmp%2Fstudents.csv%22%2C%20row.names%20%3D%20FALSE)%0A%0A%23%20Verify%20the%20file%20was%20created%0Afile.exists(%22students.csv%22)%0Aprint(%22CSV%20file%20created%20successfully!%22)&execute=1 
 ---
 Please wait for it to load
 ---
