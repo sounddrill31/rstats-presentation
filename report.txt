@@ -1,0 +1,10 @@
+Student Performance Report
+==========================
+Total students: 4
+Average grade: 88.75
+
+Department Analysis
+==================
+CS: 2 students
+Math: 1 student  
+Physics: 1 student
