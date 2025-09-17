@@ -164,7 +164,7 @@ Physics: 1 student
 layout: iframe
 
 # the web page source
-url: https://github.com/slidevjs/slidev
+url: https://examdawn.pages.dev/jupyterlite/dist/repl/?kernel=webR&code=%23%20Read%20entire%20file%20as%20character%20vector%0Atext_content%20%3C-%20readLines(%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Freport.txt%22)%0Aprint(text_content)%0A%0A%23%20Read%20specific%20number%20of%20lines%0Afirst_three%20%3C-%20readLines(%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Freport.txt%22%2C%20n%20%3D%203)%0Aprint(first_three)%0A%0A%23%20Process%20line%20by%20line%0Acon%20%3C-%20file(%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Freport.txt%22%2C%20%22r%22)%0Alines%20%3C-%20readLines(con)%0Aclose(con)%0A%0A%23%20Extract%20specific%20information%0Anumeric_lines%20%3C-%20grep(%22%5B0-9%5D%2B%22%2C%20text_content%2C%20value%20%3D%20TRUE)%0Aprint(numeric_lines)&execute=1
 ---
 ---
 layout: two-cols-header
@@ -214,7 +214,7 @@ Cable,15.99,200,Accessories
 layout: iframe
 
 # the web page source
-url: https://github.com/slidevjs/slidev
+url: https://examdawn.pages.dev/jupyterlite/dist/repl/index.html?kernel=webR&code=%23%20Read%20CSV-like%20data%20structure%0Ainventory%20%3C-%20read.csv(%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Finventory.csv%22)%0Ahead(inventory)%0A%0A%23%20Data%20analysis%20and%20visualization%0Atotal_value%20%3C-%20inventory%24Price%20*%20inventory%24Stock%0Ainventory%24Total%20%3C-%20total_value%0A%0A%23%20Create%20visualizations%0Abarplot(inventory%24Total%2C%20names.arg%20%3D%20inventory%24Product%2C%20%0A%20%20%20%20%20%20%20%20col%20%3D%20%22orange%22%2C%20main%20%3D%20%22Inventory%20Value%22)%0Apie(inventory%24Stock%2C%20labels%20%3D%20inventory%24Product%2C%20%0A%20%20%20%20main%20%3D%20%22Stock%20Distribution%22)&execute=1
 
 ---
 ---
@@ -231,7 +231,8 @@ Working with spreadsheet data (TODO: Make excel)
 # excel_data <- read_excel("file.xlsx")
 
 # Read Excel-like data structure
-inventory <- read.csv("inventory.csv")
+library(readxl)
+inventory <- read_excel("file.xlsx")
 head(inventory)
 
 # Data analysis and visualization
@@ -267,7 +268,7 @@ Cable,15.99,200,Accessories
 layout: iframe
 
 # the web page source
-url: https://github.com/slidevjs/slidev
+url: https://examdawn.pages.dev/jupyterlite/dist/repl/?kernel=webR&code=%23%20For%20Excel%20files%2C%20we%27ll%20simulate%20with%20CSV%0A%23%20In%20practice%2C%20use%3A%20library(readxl)%0A%23%20excel_data%20%3C-%20read_excel(%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Finventory.xlsx%22)%0A%0A%23%20Read%20Excel-like%20data%20structure%0Alibrary(readxl)%0Atemp_file%20%3C-%20tempfile(fileext%20%3D%20%22.xlsx%22)%0A%0A%23%202.%20Download%20the%20Excel%20file%20from%20the%20URL%20into%20the%20temporary%20file%0Adownload.file(%0A%20%20%22https%3A%2F%2Fraw.githubusercontent.com%2Fsounddrill31%2Frstats-presentation%2Frefs%2Fheads%2Fmain%2Finventory.xlsx%22%2C%0A%20%20destfile%20%3D%20temp_file%2C%0A%20%20mode%20%3D%20%22wb%22%0A)%0A%0A%23%203.%20Read%20the%20Excel%20file%20from%20the%20temporary%20file%20path%0Ainventory%20%3C-%20read_excel(temp_file)%0A%0Ahead(inventory)%0A%0A%23%20Data%20analysis%20and%20visualization%0Atotal_value%20%3C-%20inventory%24Price%20*%20inventory%24Stock%0Ainventory%24Total%20%3C-%20total_value%0A%0A%23%20Create%20visualizations%0Abarplot(inventory%24Total%2C%20names.arg%20%3D%20inventory%24Product%2C%20%0A%20%20%20%20%20%20%20%20col%20%3D%20%22orange%22%2C%20main%20%3D%20%22Inventory%20Value%22)%0Apie(inventory%24Stock%2C%20labels%20%3D%20inventory%24Product%2C%20%0A%20%20%20%20main%20%3D%20%22Stock%20Distribution%22)&execute=1
 ---
 ---
 layout: two-cols-header
